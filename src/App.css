@@ -1,0 +1,201 @@
+/* General Styles */
+:root {
+  --background-dark: linear-gradient(135deg, #1e3c72, #2a5298);
+  --background-light: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+  --text-dark: #fff;
+  --text-light: #333;
+  --card-bg-dark: rgba(255, 255, 255, 0.1);
+  --card-bg-light: rgba(255, 255, 255, 0.8);
+  --input-bg-dark: rgba(255, 255, 255, 0.8);
+  --input-bg-light: rgba(255, 255, 255, 1);
+  --button-bg-dark: #ff6f61;
+  --button-bg-light: #ff4a3d;
+  --error-color-dark: #ff4a3d;
+  --error-color-light: #ff4a3d;
+}
+
+body {
+  margin: 0;
+  font-family: "Arial", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--background-dark);
+  color: var(--text-dark);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.App {
+  text-align: center;
+  background: var(--card-bg-dark);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  max-width: 400px;
+  width: 100%;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.App.light {
+  background: var(--card-bg-light);
+  color: var(--text-light);
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: inherit;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+input {
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  margin-right: 0.5rem;
+  width: 60%;
+  background: var(--input-bg-dark);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.App.light input {
+  background: var(--input-bg-light);
+}
+
+input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 1);
+}
+
+button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background: var(--button-bg-dark);
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.App.light button {
+  background: var(--button-bg-light);
+}
+
+button:hover {
+  background: #ff4a3d;
+  transform: scale(1.05);
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+.theme-toggle {
+  margin-bottom: 1rem;
+  background: #555;
+  color: #fff;
+}
+
+.theme-toggle:hover {
+  background: #444;
+}
+
+/* Weather Display Styles */
+.weather-info {
+  margin-top: 2rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.App.light .weather-info {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: inherit;
+}
+
+p {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+  color: inherit;
+}
+
+/* Error Message Styles */
+.error {
+  color: var(--error-color-dark);
+  font-size: 1rem;
+  margin-top: 1rem;
+  animation: shake 0.5s ease-in-out;
+}
+
+.App.light .error {
+  color: var(--error-color-light);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-10px);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+  75% {
+    transform: translateX(-10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .App {
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  input {
+    width: 50%;
+  }
+
+  button {
+    padding: 0.75rem 1rem;
+  }
+}
+
+.dark {
+  background-color: black;
+  color: white;
+}
+.light {
+  background-color: white;
+  color: black;
+}
